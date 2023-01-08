@@ -2,7 +2,7 @@ import React from "react";
 import { Tree } from "./Tree";
 
 export default {
-  title: "case/Tree",
+  title: "Tree/Tree",
   component: Tree,
 };
 

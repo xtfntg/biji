@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=beef1fd3f255"
   },
   "dependencies": {
     "@react-three/drei": "^9.51.3",
@@ -34,6 +35,9 @@
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "babel-loader": "^8.3.0",
+    "chromatic": "^6.14.0",
     "vite": "^4.0.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "biji@0.0.0"
 }
