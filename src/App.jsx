@@ -1,5 +1,7 @@
+import React, { useEffect } from "react";
+import { ModelImport } from "./stories/ModelImport";
 function App() {
-  return (<div className="App">太太</div>)
+  return <ModelImport />;
 }
 
-export default App
+export default App;
