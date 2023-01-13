@@ -142,24 +142,6 @@ const useControls = (vehicleApi, chassisApi) => {
         vehicleApi.setSteeringValue(0, i);
       }
     }
-
-    if (controls.arrowdown)
-      chassisApi.applyLocalImpulse([0, -5, 0], [0, 0, +1]);
-
-    if (controls.arrowup) chassisApi.applyLocalImpulse([0, -5, 0], [0, 0, -1]);
-
-    if (controls.arrowleft)
-      chassisApi.applyLocalImpulse([0, -5, 0], [-0.5, 0, 0]);
-
-    if (controls.arrowright)
-      chassisApi.applyLocalImpulse([0, -5, 0], [+0.5, 0, 0]);
-
-    if (controls.r) {
-      chassisApi.position.set(-1.5, 0.5, 3);
-      chassisApi.velocity.set(0, 0, 0);
-      chassisApi.angularVelocity.set(0, 0, 0);
-      chassisApi.rotation.set(0, 0, 0);
-    }
   }, [controls, vehicleApi, chassisApi]);
   //2.2返回状态与使用控制一起写
   return controls;

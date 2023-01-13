@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
-import { Canvas, useLoader } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import {
   Environment,
   MeshReflectorMaterial,
@@ -8,7 +8,13 @@ import {
 } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
-import { BufferAttribute } from "three";
+import {
+  BufferAttribute,
+  NotEqualDepth,
+  Quaternion,
+  Vector3,
+  Mesh,
+} from "three";
 
 import {
   Physics,
@@ -69,7 +75,6 @@ const useControls = (vehicleApi, chassisApi) => {
     const keyDownPressHandler = (e) => {
       setControls((controls) => ({
         ...controls,
-
         [e.key.toLowerCase()]: true,
       }));
     };
@@ -116,30 +121,37 @@ const useControls = (vehicleApi, chassisApi) => {
         vehicleApi.setSteeringValue(0, i);
       }
     }
-
+    //3.1车上坡动作设置 添加箭头 会产生局部的脉冲，作用物体上的力 箭头向下
     if (controls.arrowdown)
+      //3.2本地脉冲(方向与强度) 车尾施加脉冲
       chassisApi.applyLocalImpulse([0, -5, 0], [0, 0, +1]);
-
+    //3.3箭头上;
     if (controls.arrowup) chassisApi.applyLocalImpulse([0, -5, 0], [0, 0, -1]);
-
+    //3.4箭头左;侧翻
     if (controls.arrowleft)
       chassisApi.applyLocalImpulse([0, -5, 0], [-0.5, 0, 0]);
-
+    //3.4箭头右;
     if (controls.arrowright)
       chassisApi.applyLocalImpulse([0, -5, 0], [+0.5, 0, 0]);
 
+    //3.5 R键重置位 设置空状态
     if (controls.r) {
+      //3.5.1设置回空闲状态
       chassisApi.position.set(-1.5, 0.5, 3);
+      //3.5.2重置速度
       chassisApi.velocity.set(0, 0, 0);
+      //3.5.3 车的角的速度
       chassisApi.angularVelocity.set(0, 0, 0);
+      //3.5.4 车的旋转
       chassisApi.rotation.set(0, 0, 0);
     }
   }, [controls, vehicleApi, chassisApi]);
 
   return controls;
 };
-
-const debug = true;
+//2.1 关闭调试注释
+//const debug = true;
+const debug = false;
 
 const WheelDebug = ({ radius, wheelRef }) => {
   return (
@@ -214,8 +226,8 @@ const useWheels = (width, height, front, radius) => {
 
   return [wheels, wheelInfos];
 };
-
-const Car = () => {
+//6.1添回参数属性
+const Car = ({ thirdPerson }) => {
   let mesh = useLoader(GLTFLoader, "/models/car.glb").scene;
   const position = [-1.2, 0.5, 3];
   const width = 0.15;
@@ -243,6 +255,39 @@ const Car = () => {
   );
 
   useControls(vehicleApi, chassisApi);
+
+  //6.2修改相机的位置 添回执行回调的钩子
+  useFrame((state) => {
+    if (!thirdPerson) return;
+    //6.2.1 创建位置向量
+    let position = new Vector3(0, 0, 0);
+    //6.2.2位置 将此向量设置为 变换矩阵 m的位置元素  汽车当前 矩阵界面
+    position.setFromMatrixPosition(chassisBody.current.matrixWorld);
+    //6.3.1 创建四元素
+    let quaternion = new Quaternion(0, 0, 0, 0);
+    //6.3.2 四元素 旋转矩阵  汽车当前 矩阵界面
+    quaternion.setFromRotationMatrix(chassisBody.current.matrixWorld);
+
+    //6.4  汽车追踪方向 汽车指向哪里 汽车向前行驶时 向量车对的轴向= 向量 创徤新向量
+    //汽车移动时 正在向负方向移动时 而不在正的Z轴上 把Vector3(0, 0, 1);改Vector3(0, 0, -1)
+    let wDir = new Vector3(0, 0, -1);
+    //6.4.1 生成汽车向量方法 指向面对的方向  应用四元数
+    wDir.applyQuaternion(quaternion);
+    //6.4.2 W键方向
+    wDir.normalize();
+
+    //6.5小修正 设置相机的位置
+    let cameraPosition = position
+      .clone()
+      //6.5.1为了达到哪里 需要车的位置 汽车面对的方向与+相返的向量 +轴的偏移量
+      .add(wDir.clone().multiplyScalar(-1).add(new Vector3(0, 0.3, 0)));
+
+    //6.5.2设置汽车的位置
+    state.camera.position.copy(cameraPosition);
+    //6.5.3 对着镜头，看到车的中心
+    state.camera.lookAt(position);
+  });
+
   useEffect(() => {
     mesh.scale.set(0.0012, 0.0012, 0.0012);
     mesh.children[0].position.set(-365, -18, -67);
@@ -250,10 +295,19 @@ const Car = () => {
 
   return (
     <group ref={vehicle} name="vehicle">
-      <mesh ref={chassisBody}>
+      {/* 1.2取销汽车模型注释 */}
+      <group ref={chassisBody} name="chassisBody">
+        <primitive
+          object={mesh}
+          rotation-y={Math.PI}
+          position={[0, -0.09, 0]}
+        />
+      </group>
+      {/* 1.1注释占位符 */}
+      {/*  <mesh ref={chassisBody}>
         <boxGeometry args={chassisBodyArgs} />
         <meshBasicMaterial transparent={true} opacity={0.5} />
-      </mesh>
+      </mesh> */}
       <WheelDebug wheelRef={wheels[0]} radius={wheelRadius} />
       <WheelDebug wheelRef={wheels[1]} radius={wheelRadius} />
       <WheelDebug wheelRef={wheels[2]} radius={wheelRadius} />
@@ -393,14 +447,42 @@ const Track = () => {
   );
 };
 const RacingCar = () => {
+  // 7.1第三人称初始化改为frue
+  const [thirdPerson, setThirdPerson] = useState(false);
+  const [cameraPosition, setCameraPosition] = useState([-6, 3.9, 6.21]);
+  //7.2添加效果
+  useEffect(() => {
+    //7.2.1按键处理程序
+    function keydownHandler(e) {
+      //7.2.4 k键 检查第三人称是真的 关闭相机位置 新状态打开或关闭第三人称 翻转变量
+      //关闭后指定相机位置 重置相机位置 随机位置
+      if (e.key == "k") {
+        if (thirdPerson)
+          setCameraPosition([-6, 3.9, 6.21 + Mesh.random() + 0.01]);
+        setThirdPerson(!thirdPerson);
+      }
+    }
+    //7.2.2 添加处理程序
+    window.addEventListener("keydown", keydownHandler);
+    //7.2.3 删除处理程序
+    return () => window.removeEventListener("keydown", keydownHandler);
+  }, [thirdPerson]);
+
   return (
     <Suspense fallback={null}>
       <Environment files={"/textures/envmap.hdr"} background={"both"} />
       <Track />
       <Ground />
-      <Car />
-      <PerspectiveCamera makeDefault position={[-6, 3.9, 6.21]} fov={40} />
-      <OrbitControls target={[-2.64, -0.71, 0.03]} />
+      {/* 5.1 添加前手动更新相机位置 */}
+      {/* <Car /> */}
+      {/* 5.2 添加后手动更新相机位置 */}
+      <Car thirdPerson={thirdPerson} />
+      {/* 7.2 修改位置状态 position={[-6, 3.9, 6.21]} position={cameraPosition}改*/}
+      <PerspectiveCamera makeDefault position={cameraPosition} fov={40} />
+      {/* 4.1 添加前注释窗口控制*/}
+      {/* <OrbitControls target={[-2.64, -0.71, 0.03]} /> */}
+      {/* 4.2 添加后切换第三角度 从上面跟着车*/}
+      {!thirdPerson && <OrbitControls target={[-2.64, -0.71, 0.03]} />}
     </Suspense>
   );
 };
