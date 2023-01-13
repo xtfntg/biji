@@ -128,7 +128,7 @@ const TreeRandom = ({ boundary, count }) => {
 };
 
 export const TreeRandoms = () => {
-  const style = { width: "400px", height: "400px", backgroundColor: "#ff0" };
+  const style = { width: "600px", height: "400px", backgroundColor: "#ff0" };
   return (
     <Canvas style={style} camera={{ fov: 23, position: [0, 100, -80] }}>
       <ambientLight intensity={10} />

@@ -6,7 +6,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 export const Tree = () => {
   const model = useLoader(GLTFLoader, "/Tree.glb");
   const style = {
-    width: "400px",
+    width: "600px",
     height: "400px",
     backgroundColor: "red",
   };

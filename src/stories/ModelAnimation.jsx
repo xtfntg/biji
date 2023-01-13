@@ -14,7 +14,7 @@ const LoadModelAnimation = () => {
 
 export const ModelAnimation = () => {
   const style = {
-    width: "400px",
+    width: "600px",
     height: "400px",
     backgroundColor: "#020",
   };

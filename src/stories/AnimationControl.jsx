@@ -178,7 +178,7 @@ const LoadModelKeyAnimation = () => {
 
 export const AnimationControl = () => {
   const style = {
-    width: "400px",
+    width: "600px",
     height: "400px",
     backgroundColor: "#341",
   };

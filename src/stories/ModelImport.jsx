@@ -9,7 +9,7 @@ const LoadModelImport = () => {
 
 export const ModelImport = () => {
   const style = {
-    width: "400px",
+    width: "600px",
     height: "400px",
     backgroundColor: "#020",
   };

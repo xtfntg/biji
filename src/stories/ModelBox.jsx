@@ -8,7 +8,7 @@ const LoadModel = () => {
 };
 
 export const ModelBox = () => {
-  const style = { width: "400px", height: "400px", backgroundColor: "#00c89c" };
+  const style = { width: "600px", height: "400px", backgroundColor: "#00c89c" };
   return (
     <Canvas style={style} camera={{ fov: 23, position: [-10, 50, 0] }} shadows>
       <ambientLight intensity={1} />
