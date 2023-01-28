@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>无标题文档</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		canvas {
+			background: #4e4a4a;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+	<input type="color" id="yanse" />
+	<input type="range" id="cuxi" min="1" max="50" step="1" value="10" />
+	<span id="cx">10</span>
+	<input type="button" value="橡皮擦" id="xiangpi" />
+	<br />
+	<br />
+	<canvas id="canvas" width="900" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var cv = canvas.getContext('2d');
+
+
+		cv.strokeStyle = "yellow";
+		cv.lineWidth = 10;
+		//给画板加鼠标事件
+		canvas.onmousedown = function (e) {
+			//获得事件对象
+			var ev = window.event || e;
+			//鼠标开始时候的位置
+			var m_start_left = ev.layerX || ev.offsetX;
+			var m_start_top = ev.layerY || ev.offsetY;
+
+			//开启路径
+			cv.beginPath();
+			//定义开始笔触起始位置
+			cv.moveTo(m_start_left, m_start_top);
+
+			canvas.onmousemove = function (e) {
+				//获得鼠标当前位置
+				var ev = window.event || e;
+				//鼠标当前的位置
+				var m_now_left = ev.layerX || ev.offsetX;
+				var m_now_top = ev.layerY || ev.offsetY;
+
+				//将线条画到位置
+				cv.lineTo(m_now_left, m_now_top);
+				cv.stroke();
+			}
+		}
+		//鼠标抬起事件
+		canvas.onmouseup = function () {
+			canvas.onmousemove = null;
+		}
+
+		//给颜色选择器表单加事件
+		var yanse = document.getElementById("yanse");
+		yanse.onchange = function () {
+			//将笔触改成当前表单的value值
+			cv.strokeStyle = this.value;
+		}
+
+		//给滑块加事件
+		var cuxi = document.getElementById('cuxi');
+		//修改span的值
+		var cx = document.getElementById('cx');
+		cuxi.onchange = function () {
+			//修改笔触的粗细
+			cv.lineWidth = this.value;
+			cx.innerHTML = this.value;
+		}
+
+		//给橡皮加功能
+		var xiangpi = document.getElementById('xiangpi');
+		xiangpi.onclick = function () {
+			//将笔触的颜色改成背景颜色
+			cv.strokeStyle = "#9116C7";
+		}
+	</script>
+</body>
+
+</html>

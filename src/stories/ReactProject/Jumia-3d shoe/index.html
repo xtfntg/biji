@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="styles.css"/>
+
+    <link rel="stylesheet" href="./assests/Fonts/Myraid-pro/style.css"/>
+    <title>Ascis</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+<!-- HEADER -->
+<header id="header" class="header">
+    <!-- NAV -->
+    <nav class="nav container">
+        <div class="logo">
+            <a href="">
+                <!-- <span>Nike</span> -->
+                <img src="./assests/images/Jumia-logo.jpg" alt=""
+                /></a>
+        </div>
+
+        <!-- NAV LIST -->
+        <div class="menu">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="" class="nav-link">MEN</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">WOMEN</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">KIDS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">CONTACT</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <a href="" class="cart">
+            <img
+                    class="shopping-cart"
+                    src="./assests/images/icons/shopping cart.png"
+                    alt=""
+            />
+            <!-- <span>Cart</span> -->
+        </a>
+
+        <div class="hamburger">
+            <img src="./assests/images/icons/menu.svg" alt=""/>
+
+        </div>
+    </nav>
+    <!-- END OF NAV -->
+</header>
+<!-- MAIN -->
+
+<main class="main container">
+    <div class="row">
+        <!-- NIKE SHOE -->
+        <div id="shoe-div" class="shoe">
+            <div id="show-figure" class="shoe-figure"></div>
+
+            <img
+                    id="shoe-img"
+                    class="shoe-img"
+                    src="./assests/images/pic1.png"
+                    alt=""
+            />
+            <!-- <img class="shoe-img" src="./images/pic2.png" alt="" /> -->
+
+
+            <div class="dots">
+            
+            <span
+                    id="dot-2"
+                    onclick="ClickedDot(2)"
+                    class="dot dot-color-2"
+            ></span>
+                <span
+                        id="dot-1"
+                        onclick="ClickedDot(1)"
+                        class="dot dot-color-1 active"
+                ></span>
+            </div>
+
+        </div>
+
+        <div class="info">
+            <div class="threeicon">
+                <img
+                        id="threedicon"
+                        class="threedicon not-active"
+                        src="./assests/images/icon-3d.png"
+                />
+
+                <!-- <button  >  -->
+
+                <img onclick="ClickedDot(2)" id="crossicon" class="crossicon not-active"
+                     src="./assests/images/show-cross.png"/>
+                <!-- </button>  -->
+            </div>
+            <!-- INFORMATION -->
+            <div class="shoe-info">
+                <span class="info-subtitle">Ascis</span>
+                <h1 class="info-title">Ascis Nimbus 20</h1>
+                <p class="info-description">
+                    A pair of high-quality sneakers Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Amet, laudantium nostrum ex rerum.
+                </p>
+            </div>
+
+            <div class="info-down">
+                <!-- SIZE -->
+                <div class="size">
+                    <h3 class="size-title">Total</h3>
+                    <div class="size-content">
+                        <span class="size-total active">8.6</span>
+                        <span class="size-total">9</span>
+                        <span class="size-total">9.5</span>
+                    </div>
+                </div>
+
+                <!-- COUNT -->
+                <div class="count">
+                    <h3 class="count-title">Count</h3>
+                    <div class="count-content">
+                        <span>-</span>
+                        <span>1</span>
+                        <span>+</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRICE -->
+            <div class="price">
+                <span class="price-title">UGX 85,000</span>
+                <a class="price-button">ADD TO CART</a>
+
+            </div>
+</main>
+
+
+
+
+<!-- GSAP -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<!-- Custom Script -->
+<script src="index.js"></script>
+
+</body>
+</html>

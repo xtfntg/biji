@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>jqlery 练习</title>
+    <meta
+      content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"
+      name="viewport"
+    />
+    <link href="css/iconfont.css" rel="stylesheet" type="text/css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #top {
+        background: #fe5400;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+      #top i.iconfont.icon-tao {
+        color: white;
+        font-size: 8vw;
+        float: left;
+        margin-left: 2%;
+        margin-bottom: 1%;
+      }
+      #top .search {
+        width: 87%;
+        display: block;
+        float: left;
+        margin-left: 1%;
+        background: #b52600;
+        text-align: center;
+        color: white;
+        line-height: 2.01em;
+        text-decoration: none;
+        font-syze: 3vw;
+        border-radius: 5px;
+      }
+      .flash {
+        width: 100%;
+        display: block;
+      }
+
+      #icolist li {
+        width: 20%;
+        list-style: none;
+        margin-top: 3%;
+        float: left;
+      }
+      #icolist li img {
+        border-radius: 50%;
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+      }
+      #icolist li a {
+        text-decoration: none;
+        color: rgb(102, 102, 102);
+        display: block;
+        text-align: center;
+        width: 100%;
+        font-size: 1vw;
+        line-height: 2em;
+      }
+      #first {
+        width: 100%;
+        overflow: hidden;
+        border-top: 1px solid #f7f7f7;
+        border-bottom: 5px solid #eeeeee;
+        padding: 2% 0;
+        display: flex;
+        align-items: center;
+        margin-top: 3%;
+      }
+      #first .left {
+        width: 17%;
+        border-right: 1px solid #f000;
+        padding-right: 3%;
+        float: left;
+        margin-left: 2%;
+      }
+      #first span.center {
+        float: left;
+        border: 1px solid rgb(216, 20, 33);
+        color: rgb(216, 20, 33);
+        font-size: 3.6vw;
+        padding: 2px;
+        border-radius: 5px;
+        margin-left: 2%;
+      }
+      #first .right {
+        font-size: 3.7vw;
+        color: rgb(53, 53, 53);
+        width: 60%;
+        margin-left: 2%;
+        white-space: nowrap;
+        float: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 1.7em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="top">
+      <i class="iconfont icon-tao"></i>
+      <a href="" class="search"
+        ><i class="iconfont icon-fangdajing"></i>寻找宝贝店铺</a
+      >
+    </div>
+    <img src="images/tb.jpg" class="flash" />
+    <ul id="icolist">
+      <li><img src="images/tm/1.png" /><a>天猫</a></li>
+      <li><img src="images/tm/2.png" /><a>聚划算</a></li>
+      <li><img src="images/tm/3.png" /><a>天猫国际</a></li>
+      <li><img src="images/tm/4.png" /><a>外卖</a></li>
+      <li><img src="images/tm/5.png" /><a>天猫超市</a></li>
+      <li><img src="images/tm/6.png" /><a>充值中心</a></li>
+      <li><img src="images/tm/7.png" /><a>飞猪旅行</a></li>
+      <li><img src="images/tm/8.png" /><a>领金币</a></li>
+      <li><img src="images/tm/9.png" /><a>拍卖</a></li>
+      <li><img src="images/tm/10.png" /><a>分类</a></li>
+    </ul>
+    <div id="first">
+      <img src="images/tao.png" class="left" />
+      <span class="center">资讯</span>
+      <p class="right">华为全面屏强机荣耀Note 9曝光：新CPU加持</p>
+    </div>
+  </body>
+</html>

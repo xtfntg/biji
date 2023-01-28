@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import { ModelImport } from "./stories/ModelImport";
 function App() {
-  return <ModelImport />;
+  return <div>谁呼</div>;
 }
-
 export default App;

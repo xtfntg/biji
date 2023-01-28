@@ -1,0 +1,461 @@
+$(function () {
+  var FORM_URL = window.location.protocol + "//" + window.location.host;
+  // 网页浏览时间
+  var time_start = new Date();
+  var clock_start = time_start.getTime();
+  var limitTime = 30;
+  function get_time_spent() {
+    var time_now = new Date();
+    var time_spend = (time_now.getTime() - clock_start) / 1000;
+    if (sessionStorage.getItem("s_secs_spent")) {
+      return parseInt(sessionStorage.getItem("s_secs_spent")) + 1;
+    } else {
+      return time_spend;
+    }
+  }
+
+  var limitTime = 30;
+  var spend_timer = setInterval(function () {
+    sessionStorage.setItem("s_secs_spent", get_time_spent());
+    var s_secs_spent = sessionStorage.getItem("s_secs_spent");
+    if (s_secs_spent == limitTime + 1) {
+      if (
+        $(".mask").hasClass("slideInBottom") ||
+        ($("video").length != 0 && !$("video")[0].paused)
+      ) {
+        limitTime = limitTime + 30;
+      } else {
+        $(".modal-bbb").removeClass("slideOutBottom");
+        $(".modal-bbb").addClass("slideInBottom");
+        clearInterval(spend_timer);
+      }
+    }
+    if (s_secs_spent > limitTime + 1) {
+      clearInterval(spend_timer);
+    }
+  }, 1000);
+
+  $(".btn-scrolltop").on("click", function () {
+    $("body,html").animate(
+      {
+        scrollTop: 0
+      },
+      400
+    );
+  });
+
+  function showToast(content) {
+    $('.main-toast').text(content);
+    $('.main-toast').fadeIn();
+    setTimeout(function () {
+      $('.main-toast').fadeOut();
+    }, 3000)
+  }
+
+  function checkData(value) {
+    if (value.username == "") {
+      showToast("姓名不能为空");
+      return false;
+    }
+    if (!/^1[3456789]\d{9}$/.test(value.phone)) {
+      showToast("请输入有效手机号");
+      return false;
+    }
+    if (value.area == "") {
+      showToast("面积不能为空");
+      return false;
+    }
+    if (
+      /^1[3456789]\d{9}$/.test(value.phone) &&
+      value.username != "" &&
+      value.area != ""
+    ) {
+      return true;
+    }
+  }
+
+  function checkRadioData(value) {
+    if (value.username == "") {
+      showToast("姓名不能为空");
+      return false;
+    }
+    if (!/^1[3456789]\d{9}$/.test(value.phone)) {
+      showToast("请输入有效手机号");
+      return false;
+    }
+    if (/^1[3456789]\d{9}$/.test(value.phone) && value.username != "") {
+      return true;
+    }
+  }
+
+  function checkCommentData(value) {
+    if (value.username == "") {
+      showToast("姓名不能为空");
+      return false;
+    }
+    if (!/^1[3456789]\d{9}$/.test(value.phone)) {
+      showToast("请输入有效手机号");
+      return false;
+    }
+    if (value.comment == "") {
+      showToast("留言不能为空");
+      return false;
+    }
+    if (
+      /^1[3456789]\d{9}$/.test(value.phone) &&
+      value.username != "" &&
+      value.comment != ""
+    ) {
+      return true;
+    }
+  }
+
+  function submitData(data, num) {
+    is_submit_valid = false;
+    $.ajax({
+      type: "POST",
+      url: FORM_URL + "/api/leads",
+      data: data,
+      //请求成功
+      success: function (result) {
+        window._agl && window._agl.push(["track", ["success", { t: 3 }]]);
+        setTimeout(function () {
+          is_submit_valid = true;
+        }, 1000)
+        if (num) {
+          showToast(num + '元');
+        } else {
+          showToast("提交成功");
+        }
+        // resetForm();
+        // setTimeout(function () {
+        //     $('.mask').fadeOut();
+        // }, 500)
+      },
+      error: function () {
+        showToast("提交失败 请确认网络重新提交");
+      }
+    });
+  }
+
+  function resetForm() {
+    // $('.result .num').text('0')
+    $("input,textarea").each(function (index, item) {
+      $(item).val("");
+    });
+  }
+
+  var form_id = "";
+  var is_submit_valid = true;
+
+  $(".btn-open-calculator").on("click", function () {
+    form_id = $(this).data("formid");
+    $(".modal-calculator").removeClass("slideOutBottom");
+    $(".modal-calculator").addClass("slideInBottom");
+    $(".modal-calculator").on("touchmove", function (e) {
+      e.preventDefault();
+    });
+  });
+
+  $(".btn-open-redpacket").on("click", function () {
+    form_id = $(this).data("formid");
+    $(".modal-redpacket").removeClass("slideOutBottom");
+    $(".modal-redpacket").addClass("slideInBottom");
+    $(".modal-redpacket").on("touchmove", function (e) {
+      e.preventDefault();
+    });
+  });
+
+  $(".btn-open-contact").on("click", function () {
+    var title = $(this).data("title");
+    var titleExtra = $(this).data("titleextra");
+    var btnName = $(this).data("btnname") || $(this).text();
+    var rightPic = $(this).data("pic");
+    form_id = $(this).data("formid");
+    if (title) {
+      $(".modal-contact .title").text(title);
+    } else {
+      $(".modal-contact .title").text("预约全包圆线上专属设计师");
+    }
+    if (titleExtra) {
+      $(".modal-contact .title-extra").text(titleExtra);
+    } else {
+      $(".modal-contact .title-extra").text("请留下您的联系方式");
+    }
+    if (btnName) {
+      $(".modal-contact .btn-contact").text(btnName);
+    } else {
+      $(".modal-contact .btn-contact").text("提交");
+    }
+    if (rightPic) {
+      $(".modal-contact .right-wrap>img").attr("src", rightPic);
+      $(".modal-contact .contact-ways").hide();
+    }
+    $(".modal-contact").removeClass("slideOutBottom");
+    $(".modal-contact").addClass("slideInBottom");
+    $(".modal-contact").on("touchmove", function (e) {
+      e.preventDefault();
+    });
+  });
+
+  $(".btn-modal-close").on("click", function () {
+    $(this)
+      .parents(".mask")
+      .removeClass("slideInBottom");
+    $(this)
+      .parents(".mask")
+      .addClass("slideOutBottom");
+    $(this)
+      .parents(".mask")
+      .find("input[name=p_username]")
+      .val("");
+    $(this)
+      .parents(".mask")
+      .find("input[name=p_phone]")
+      .val("");
+    $(this)
+      .parents(".mask")
+      .find("input[name=p_area]")
+      .val("");
+    $(this)
+      .parents(".mask")
+      .find(".result .num")
+      .hide();
+    $(this)
+      .parents(".mask")
+      .find(".result .calculator-gif")
+      .show();
+    if (
+      $(this)
+        .parents(".mask")
+        .find("input[name=remarks]").length != 0
+    ) {
+      $(this)
+        .parents(".mask")
+        .find("input[name=remarks]")
+        .val("");
+    }
+    $(this)
+      .parents(".mask")
+      .find(".result .num")
+      .text("0");
+    $(".modal-contact .title").css({ "font-size": "24px" });
+
+    localStorage.clear("formid");
+  });
+
+  $(".fixed-bottom-calculator .icon-close").on("click", function () {
+    $(".fixed-bottom-calculator").fadeOut();
+  });
+
+  $(".btn-calculator").on("click", function () {
+    var username = $(this)
+      .parents(".calculator-wrap")
+      .find("input[name=p_username]")
+      .val();
+    var phone = $(this)
+      .parents(".calculator-wrap")
+      .find("input[name=p_phone]")
+      .val();
+    var area = $(this)
+      .parents(".calculator-wrap")
+      .find("input[name=p_area]")
+      .val();
+    var value = {
+      username: username,
+      phone: phone,
+      area: area
+    };
+    if (checkData(value)) {
+      if ($(this).data("formid") != undefined) {
+        form_id = $(this).data("formid");
+      }
+
+      var val;
+      if (area < 50) {
+        val = (53000 * 1.0341 * 1.15).toFixed(0);
+      }
+      if (area >= 50 && area < 60) {
+        val = ((53000 + (area - 50) * 199) * 1.0341 * 1.15).toFixed(0);
+      }
+      if (area >= 60 && area <= 71) {
+        val = (Math.round(71 * 999 * 1.0341 * 1.15 * 1000) / 1000).toFixed(0);
+      }
+      if (area > 71) {
+        val = (Math.round(area * 999 * 1.0341 * 1.15 * 1000) / 1000).toFixed(0);
+      }
+      var _this = this;
+      $(".result .num").each(function (index, item) {
+        if (
+          $(item).is(
+            $(_this)
+              .parents(".calculator-wrap")
+              .find(".result .num")
+          )
+        ) {
+          // clearInterval(resultTimer[index]);
+        }
+      });
+      $(this)
+        .parents(".calculator-wrap")
+        .find(".result .num")
+        .show();
+      $(this)
+        .parents(".calculator-wrap")
+        .find(".result .calculator-gif")
+        .hide();
+      $(this)
+        .parents(".calculator-wrap")
+        .find(".result .num")
+        .text(val);
+
+      var data = {
+        username: username,
+        phone: phone,
+        area: area,
+        source_url: document.referrer,
+        entrance: window.location.href,
+        form_id: form_id
+      };
+      if (is_submit_valid) {
+        submitData(data, val);
+      }
+    }
+  });
+
+  $(".btn-contact").on("click", function () {
+    var username = $(this)
+      .parents(".form-wrap")
+      .find("input[name=p_username]")
+      .val();
+    var phone = $(this)
+      .parents(".form-wrap")
+      .find("input[name=p_phone]")
+      .val();
+    var area = $(this)
+      .parents(".form-wrap")
+      .find("input[name=p_area]")
+      .val();
+    var remarks = $(this)
+      .parents(".form-wrap")
+      .find("input[name=remarks]")
+      .val();
+
+    var value = {
+      username: username,
+      phone: phone,
+      area: area,
+      remarks: remarks
+    };
+    if (checkData(value)) {
+      if ($(this).data("formid") != undefined) {
+        form_id = $(this).data("formid");
+      }
+
+      var data = {
+        username: username,
+        phone: phone,
+        area: area,
+        remarks: remarks,
+        source_url: document.referrer,
+        entrance: window.location.href,
+        form_id: localStorage.getItem("formid") || form_id
+      };
+      if (is_submit_valid) {
+        submitData(data);
+      }
+    }
+  });
+
+  $(".btn-comment-contact").on("click", function () {
+    var username = $(this)
+      .parents(".form-wrap")
+      .find("input[name=p_username]")
+      .val();
+    var phone = $(this)
+      .parents(".form-wrap")
+      .find("input[name=p_phone]")
+      .val();
+    var comment = $(this)
+      .parents(".form-wrap")
+      .find("textarea[name=p_note]")
+      .val();
+    var value = {
+      username: username,
+      phone: phone,
+      comment: comment
+    };
+    if (checkCommentData(value)) {
+      if ($(this).data("formid") != undefined) {
+        form_id = $(this).data("formid");
+      }
+
+      var data = {
+        username: username,
+        phone: phone,
+        comment: comment,
+        source_url: document.referrer,
+        entrance: window.location.href,
+        form_id: form_id
+      };
+      if (is_submit_valid) {
+        submitData(data);
+      }
+    }
+  });
+
+  $(".btn-radio-contact").on("click", function () {
+    var username = $(this)
+      .parents(".form-wrap")
+      .find("input[name=p_username]")
+      .val();
+    var phone = $(this)
+      .parents(".form-wrap")
+      .find("input[name=p_phone]")
+      .val();
+    var value = {
+      username: username,
+      phone: phone
+    };
+    if (checkRadioData(value)) {
+      if ($(this).data("formid") != undefined) {
+        form_id = $(this).data("formid");
+      }
+      var data = {
+        username: username,
+        phone: phone,
+        source_url: document.referrer,
+        entrance: window.location.href,
+        form_id: form_id
+      };
+      if (is_submit_valid) {
+        submitData(data);
+      }
+    }
+  });
+});
+
+// jQuery.fn.randomResult = function() {
+//   // 计算器随机数跳动
+//   var resultNumArr = [
+//       94523,
+//       257859,
+//       132314,
+//       277863,
+//       198871,
+//       164125,
+//       89967,
+//       183569,
+//       87766,
+//       164589
+//     ],
+//     resultRandom;
+//   resultTimer = [];
+
+//   $(".result .num").each(function(index, item) {
+//     resultTimer[index] = setInterval(function() {
+//       resultRandom = Math.floor(Math.random() * 10);
+//       $(item).text(resultNumArr[resultRandom]);
+//     }, 200);
+//   });
+// };

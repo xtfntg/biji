@@ -1,0 +1,24 @@
+//案例 1 useRef 信息钩子的使用方法
+
+const Ring = () => {
+const { viewport } = useThree();
+const ref = useRef();
+useFrame(({ mouse }) => {
+const x = (mouse.x / viewport.width) _ 2 - 1;
+const y = (mouse.y / viewport.width) _ 2 + 1;
+ref.current.position.set(x, y, 0);
+ref.current.rotation.set(-y, x, 0);
+});
+return (
+
+<mesh ref={ref} rotation={[Math.PI / -2, 0, 0]} position={[0, 0.01, 0]}>
+  <ringBufferGeometry args={[0.3, 0.36, 64]} />
+  <meshBasicMaterial
+    color={"#fff"}
+    transparent={true}
+    opacity={0.5}
+    //visible={false}
+    visible={true}
+  />
+</mesh>
+); };

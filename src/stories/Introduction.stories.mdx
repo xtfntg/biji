@@ -7,8 +7,13 @@ import Flow from "./assets/flow.svg";
 import Plugin from "./assets/plugin.svg";
 import Repo from "./assets/repo.svg";
 import StackAlt from "./assets/stackalt.svg";
+import svgrepo from "./assets/svgrepo.svg";
+import trumpet from "./assets/trumpet.svg";
+import food from "./assets/food.svg";
+import redBook from "./assets/redBook.svg";
+import graph from "./assets/graph.svg";
 
-<Meta title="Example/Introduction" />
+<Meta title="Foreword/Introduction" />
 
 <style>
   {`
@@ -114,64 +119,96 @@ import StackAlt from "./assets/stackalt.svg";
   `}
 </style>
 
-# 欢迎来到 React-three/cone 元宇宙
+# 欢迎回到网页版元宇宙笔记
 
-Storybook 可帮助您构建与应用程序的业务逻辑、数据和上下文隔离的 UI 组件。
-这使得开发难以达到的状态变得容易。 将这些 UI 状态保存为**故事**，以便在开发、测试或 QA 期间重新访问。
+**笔记主要以中级教程.重点原件交互为主。🗃 用到的基础知识下列**。`stories`🍕<br />
+[**blender**](https://www.blender.org)从三维建模，贴图，渲染，动画等技术。🍰<br />
+[**html5,css scss, javascript **]()部分前端网络使用到基础知识。🌒<br />
+[**Three.js**](https://threejs.org)它可以在网页 生成三维场景 全局照明，动画渲染，烘焙贴图，使用户定义出高品质的硬件反射效果。🐚<br />
+[**React**](https://beta.reactjs.org) 的基础知识 Suspense, useEffect, useRef, useState 常用钩子的使用方法 🌿<<br />
+[**ReactNative**](https://reactnative.dev) 手机版使用 🦬<br />
+[**react-three/fiber**](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) 框架基础知误 🐄<br />
+[**react-three/drei**](https://github.com/pmndrs/drei#readme) 使用的现有的函数 🌍<br />
+[**react-three/cannon**](https://github.com/pmndrs/cannon-es)物理钩子的使用方法。🐰<br />
+[**MongoDB**](https://www.mongodb.com)数据后台。🐹<br />
+[**node**](https://nodejs.org)JavaScript 运行时环境。🔥<br />
+[**Express**](https://expressjs.com) HTTP 中间件。🌓<br />
 
-现在通过在边栏中导航到示例故事来浏览示例故事。
-在 `stories` 目录中查看他们的代码以了解它们的工作原理。
-我们建议使用从原子组件开始到页面结束的 [**组件驱动**](https://componentdriven.org) 流程构建 UI。
+**共分为 4 个部分，25 章，各部分内容概要如下：🖇**<br />
+**第 1 部分** 基本操作、基础建模与动画如识,以及灯光、材质和摄像机的基本应用。并通过教室模型、玩偶、🐶 建筑和别墅模型等完整的实例边学边练，富有成就感。📚<br />
+**第 2 部分**建模。逐步了解编辑多边形、编辑面片、NURBS 等较为复杂的建模方法。通过代表性的实例，如赛车模型、家居模型，角色建模等的制作，🔧<br />
+**第 3 部分** 质感在材质和渲染方面也有重大的改进。烘肴贴图等世界一流技术。本部分进行了较为深入而详细的探讨，并借助实例展示了关键技术的应用技巧。💻<br />
+**第 4 部分** 动画。包括全新的轨迹视图、骨骼、蒙皮、角色动画制作以及粒子特效等，最后还介绍了重要插件和后期制作方面的内容。❤️<br />
+**第 5 部分** 实例人物场景 🚗 人物动作动做切换 人物行走移动。树场景树的随机 🌴🌳，再到树是否重叠的步骤。汽车调试到物理碰撞，坡道物理特性第三视觉与场景切换 🚀<br />
 
-MDX 允许你在 markdown 内容中使用 JSX。您可以导入组件，例如交互式图表或警报，并将它们嵌入到您的内容中。这使得使用组件编写长篇内容成为一种冲击。🚀
-
-<div className="subheading">常用函数</div>
+<div className="subheading">React框架常用函数</div>
 
 <div className="link-list">
   <a
     className="link-item"
-    href="https://storybook.js.org/docs/react/addons/addon-types"
-    target="_blank"
-  >
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>useFrame</strong>
-      执行回调的钩子 每秒以60帧计算
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
-    target="_blank"
-  >
-    <img src={StackAlt} alt="Build" />
-    <span>
-      <strong>useThree</strong>
-      如何自定义 webpack 和 Babel
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/styling-and-css"
-    target="_blank"
-  >
+    href="https://beta.reactjs.org/learn/synchronizing-with-effects" target="_blank">
     <img src={Colors} alt="colors" />
     <span>
       <strong>useEffect</strong>
-      效果钩子
+      状态控制钩子 如暂停&播放 鼠标事件 键盘输入事件
     </span>
   </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
-    target="_blank"
-  >
+
+  <a className="link-item" href="https://beta.reactjs.org/reference/react/useRef#referencing-a-value-with-a-ref" target="_blank">
     <img src={Flow} alt="flow" />
     <span>
-      <strong>数据</strong>
-      数据库的提供者和模拟
+      <strong>useRef</strong>
+      参考信息钩子
     </span>
   </a>
+  <a className="link-item" Link="./useFrame.mdx" target="_blank">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>useState</strong>
+      使用状态
+    </span>
+  </a>
+  <a className="link-item" href="https://storybook.js.org/" target="_blank">
+    <img src={StackAlt} alt="Build" />
+    <span>
+      <strong>Suspense</strong>
+      悬挂使用
+    </span>
+  </a>
+</div>
+
+<div className="subheading">fibef框架常用函数</div>
+
+<div className="link-list">
+  <a className="link-item" href="/useFrame.mdx" target="_blank">
+    <img src={svgrepo} alt="svgrepo" />
+    <span>
+      <strong>useFrame</strong>
+      使用框架
+    </span>
+  </a>
+  <a className="link-item" href="/useFrame.mdx" target="_blank">
+    <img src={trumpet} alt="trumpet" />
+    <span>
+      <strong>useThree</strong>
+      信息钩子const ref = useRef();
+    </span>
+  </a>
+  <a className="link-item" 	Link="./useFrame.mdx" target="_blank">
+    <img src={redBook} alt="redBook " />
+    <span>
+      <strong>useLoader</strong>
+       加载模型
+    </span>
+  </a>
+  <a className="link-item" href="https://storybook.js.org/" target="_blank">
+    <img src={graph} alt="graph" />
+    <span>
+      <strong>useGraph</strong>
+      使用图表
+    </span>
+  </a>
+
 </div>
 
 <div className="subheading">Learn</div>
