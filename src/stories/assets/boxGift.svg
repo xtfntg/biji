@@ -1,0 +1,26 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://www.86y.org/demo/svg/-->
+ <defs>
+  <symbol id="svg_19" viewBox="0 0 64 64" height="800px" width="800px" xmlns="http://www.w3.org/2000/svg">
+   <rect fill="#c1272d" y="8" x="3" width="58" ry="2" rx="2" height="48"/>
+   <rect fill="#ffcd62" y="29" x="3" width="58" height="6"/>
+   <rect fill="#ffcd62" y="8" x="29" width="6" height="48"/>
+   <path fill="#ef4037" d="m32,20.686l0,0a8,8 0 0 0 0,11.314l0,0a8,8 0 0 0 0,-11.314z"/>
+   <path fill="#ef4037" d="m32,32l0,0a8,8 0 0 1 -11.314,0l0,0a8,8 0 0 1 11.314,0z"/>
+   <path fill="#ef4037" d="m43.314,32l0,0a8,8 0 0 1 -11.314,0l0,0a8,8 0 0 1 11.314,0z"/>
+   <path fill="#ef4037" d="m32,32l0,0a8,8 0 0 0 0,11.314l0,0a8,8 0 0 0 0,-11.314z"/>
+   <path fill="#ffac00" d="m40,24l0,0a0,0 0 0 1 0,0l0,0a8,8 0 0 1 -8,8l0,0a0,0 0 0 1 0,0l0,0a8,8 0 0 1 8,-8z"/>
+   <path fill="#ffac00" d="m24,24l0,0a8,8 0 0 1 8,8l0,0a0,0 0 0 1 0,0l0,0a8,8 0 0 1 -8,-8l0,0a0,0 0 0 1 0,0z"/>
+   <path fill="#ffac00" d="m32,32l0,0a8,8 0 0 1 8,8l0,0a0,0 0 0 1 0,0l0,0a8,8 0 0 1 -8,-8l0,0a0,0 0 0 1 0,0z"/>
+   <path fill="#ffac00" d="m32,32l0,0a0,0 0 0 1 0,0l0,0a8,8 0 0 1 -8,8l0,0a0,0 0 0 1 0,0l0,0a8,8 0 0 1 8,-8z"/>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="svg_4"/>
+  <g id="svg_8"/>
+  <g id="svg_17"/>
+  <use x="-224.80108" y="-341.43527" transform="matrix(0.06163301041870277,0,0,0.06471365028009894,13.627363140495907,20.506645449676018) " xlink:href="#svg_19" id="svg_20"/>
+  <g id="svg_21"/>
+ </g>
+</svg>

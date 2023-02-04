@@ -1,12 +1,41 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 //2.1创建控件
-const useControls = () => {
+const UseControls = () => {
+  var state = "idle";
   //2.2控件装态
-  let [controls, setControls] = useState({});
+  let [controls, setControls] = useState(false);
+  const [hovered, setHover] = useState({});
   //2.3创建效果组件
-  useEffect(() => {});
+  useEffect(() => {
+    //2.4点击鼠标事件状态是指针向下
+    const onMouseDown = (e) => {
+      console.log();
+    };
+    //2.5点击鼠标事件抬起状态
+    /*   const onMouseUp = (e) => {
+      setControls((controls) => ({
+        ...controls,
+        controls: true,
+      }));
+    }; */
+    //2.6鼠标移动事件
+    /*  const onMouseMove = (e) => {
+      setControls((controls) => ({
+        ...controls,
+        controls: true,
+      }));
+    }; */
+    //window.addEventListener("mousedown", onMouseDown);
+    /* window.addEventListener("mouseup", onMouseUp);
+    window.addEventListener("mousemove", onMouseMove); */
+    return () => {
+      // window.removeEventListener("mousedown", onMouseDown);
+      /*  window.removeEventListener("mouseup", onMouseUp);
+      window.removeEventListener("mousemove", onMouseMove); */
+    };
+  }, []);
   return controls;
 };
 
@@ -59,7 +88,12 @@ export const FloorEvent = () => {
     cursor: "pointer",
   };
   return (
-    <Canvas style={style} camera={{ fov: 75, position: [0, 1, 7] }} shadows>
+    <Canvas
+      onClick={alert(11111111)}
+      style={style}
+      camera={{ fov: 75, position: [0, 1, 7] }}
+      shadows
+    >
       <ambientLight intensity={0.1} />
       <pointLight
         position={[0, 2, 0]}
@@ -69,6 +103,7 @@ export const FloorEvent = () => {
       />
       <FloorMesh />
       <Ring />
+      <UseControls />
     </Canvas>
   );
 };

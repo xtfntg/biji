@@ -1,0 +1,37 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://www.86y.org/demo/svg/-->
+ <defs>
+  <symbol id="svg_23" viewBox="0 0 64 64" height="800px" width="800px" xmlns="http://www.w3.org/2000/svg">
+   <rect fill="#f4b1cc" y="3" x="5" width="16" height="58"/>
+   <rect fill="#f3e7da" y="11" x="31" width="12" height="50"/>
+   <rect fill="#ac8168" y="5" x="43" width="16" height="56"/>
+   <rect fill="#a3b75c" y="7" x="21" width="10" height="54"/>
+   <rect fill="#ef4037" y="30" x="5" width="54" height="4"/>
+   <rect fill="#c7b299" y="9" x="49" width="4" height="14"/>
+   <path fill="#a3b75c" d="m37,24a1,1 0 0 1 -1,-1l0,-8a1,1 0 0 1 2,0l0,8a1,1 0 0 1 -1,1z"/>
+   <path fill="#f3e7da" d="m55,52l-8,0a1,1 0 0 1 0,-2l8,0a1,1 0 0 1 0,2z"/>
+   <path fill="#f3e7da" d="m55,56l-8,0a1,1 0 0 1 0,-2l8,0a1,1 0 0 1 0,2z"/>
+   <path fill="#fff" d="m27,12l-2,0a1,1 0 0 1 0,-2l2,0a1,1 0 0 1 0,2z"/>
+   <path fill="#fff" d="m27,16l-2,0a1,1 0 0 1 0,-2l2,0a1,1 0 0 1 0,2z"/>
+   <path fill="#f3e7da" d="m17,8l-8,0a1,1 0 0 1 0,-2l8,0a1,1 0 0 1 0,2z"/>
+   <circle fill="#c7b299" r="4" cy="15" cx="13"/>
+   <path fill="#ac8168" d="m13,58a1,1 0 0 1 -1,-1l0,-16a1,1 0 0 1 2,0l0,16a1,1 0 0 1 -1,1z"/>
+   <circle fill="#a3b75c" r="2" cy="55" cx="37"/>
+   <path fill="#fff" d="m27,58l-2,0a1,1 0 0 1 0,-2l2,0a1,1 0 0 1 0,2z"/>
+   <path fill="#fff" d="m27,54l-2,0a1,1 0 0 1 0,-2l2,0a1,1 0 0 1 0,2z"/>
+   <path fill="#c1272d" d="m45,32c0,-3.314 -1.791,-6 -4,-6s-8,6 -8,6s5.791,6 8,6s4,-2.686 4,-6z"/>
+   <path fill="#c1272d" d="m31,32s-5.791,-6 -8,-6s-4,2.686 -4,6s1.791,6 4,6s8,-6 8,-6z"/>
+   <path fill="#a32d1e" d="m39,33l-14,0a1,1 0 0 1 0,-2l14,0a1,1 0 0 1 0,2z"/>
+   <circle fill="#ef4037" r="3" cy="32" cx="32"/>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="svg_4"/>
+  <g id="svg_8"/>
+  <g id="svg_17"/>
+  <g id="svg_21"/>
+  <use x="-461.57694" y="-279.41191" transform="matrix(0.060861002807373145,0,0,0.060102514206241006,27.19131934368201,16.367454346956617) " xlink:href="#svg_23" id="svg_24"/>
+  <g id="svg_25"/>
+ </g>
+</svg>

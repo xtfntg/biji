@@ -8,12 +8,18 @@ import Plugin from "./assets/plugin.svg";
 import Repo from "./assets/repo.svg";
 import StackAlt from "./assets/stackalt.svg";
 import svgrepo from "./assets/svgrepo.svg";
+import graph from "./assets/graph.svg";
+import online from "./assets/online.svg";
+import tag from "./assets/tag.svg";
+import wallet from "./assets/wallet.svg";
+import bomberman from "./assets/bomberman.svg";
+import boxGift from "./assets/boxGift.svg";
+import bookGift from "./assets/bookGift.svg";
 import trumpet from "./assets/trumpet.svg";
 import food from "./assets/food.svg";
 import redBook from "./assets/redBook.svg";
-import graph from "./assets/graph.svg";
 
-<Meta title="Foreword/Introduction" />
+<Meta title="Example/Introduction" />
 
 <style>
   {`
@@ -146,113 +152,243 @@ import graph from "./assets/graph.svg";
 <div className="link-list">
   <a
     className="link-item"
-    href="https://beta.reactjs.org/learn/synchronizing-with-effects" target="_blank">
+    href="https://beta.reactjs.org/learn/synchronizing-with-effects"
+    target="_blank"
+  >
     <img src={Colors} alt="colors" />
     <span>
       <strong>useEffect</strong>
-      状态控制钩子 如暂停&播放 鼠标事件 键盘输入事件
+      状态控制钩子 可让您将组件与外部系统同步。 如暂停&播放 鼠标事件 键盘输入事件
     </span>
   </a>
 
-  <a className="link-item" href="https://beta.reactjs.org/reference/react/useRef#referencing-a-value-with-a-ref" target="_blank">
-    <img src={Flow} alt="flow" />
-    <span>
-      <strong>useRef</strong>
-      参考信息钩子
-    </span>
-  </a>
-  <a className="link-item" Link="./useFrame.mdx" target="_blank">
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>useState</strong>
-      使用状态
-    </span>
-  </a>
-  <a className="link-item" href="https://storybook.js.org/" target="_blank">
-    <img src={StackAlt} alt="Build" />
-    <span>
-      <strong>Suspense</strong>
-      悬挂使用
-    </span>
-  </a>
+<a
+  className="link-item"
+  href="https://beta.reactjs.org/reference/react/useRef#referencing-a-value-with-a-ref"
+  target="_blank"
+>
+  <img src={Flow} alt="flow" />
+  <span>
+    <strong>useRef</strong>
+    参考信息钩子 可让您引用渲染不需要的值
+  </span>
+</a>
+
+<a
+  className="link-item"
+  href="https://beta.reactjs.org/reference/react/useState"
+  target="_blank"
+>
+  <img src={Plugin} alt="plugin" />
+  <span>
+    <strong>useState</strong>
+    使用状态钩子 可让您向组件添加状态变量。
+  </span>
+</a>
+
+<a className="link-item" href="https://storybook.js.org/" target="_blank">
+  <img src={StackAlt} alt="Build" />
+  <span>
+    <strong>Suspense</strong>
+    悬挂组件(进度条) 允许显示回退，直到其子项完成加载。
+  </span>
+</a>
+
+<a
+  className="link-item"
+  href="https://beta.reactjs.org/reference/react/createContext"
+  target="_blank"
+>
+  <img src={online} alt="online" />
+  <span>
+    <strong>createContext</strong>
+    创建上下文 允许您创建组件可以提供或读取的上下文。
+  </span>
+</a>
+<a
+  className="link-item"
+  href="https://beta.reactjs.org/reference/react/useContext"
+  target="_blank"
+>
+  <img src={tag} alt="tag" />
+  <span>
+    <strong>useContext</strong>
+    使用上下文 可让您从组件中读取和订阅上下文。
+  </span>
+</a>
+
+<a
+  className="link-item"
+  href="https://beta.reactjs.org/reference/react/useContext"
+  target="_blank"
+>
+  <img src={tag} alt="tag" />
+  <span>
+    <strong>useMemo</strong>
+    记忆钩子 可让您在重新渲染之间缓存计算结果。跳过昂贵的重新计算 跳过组件的重新渲染
+  </span>
+</a>
+
+<a
+  className="link-item"
+  href="https://beta.reactjs.org/reference/react/useContext"
+  target="_blank"
+>
+  <img src={tag} alt="tag" />
+  <span>
+    <strong>useContext</strong>
+    使用上下文 可让您从组件中读取和订阅上下文。
+  </span>
+</a>
+
 </div>
 
 <div className="subheading">fibef框架常用函数</div>
 
 <div className="link-list">
-  <a className="link-item" href="/useFrame.mdx" target="_blank">
-    <img src={svgrepo} alt="svgrepo" />
-    <span>
-      <strong>useFrame</strong>
-      使用框架
-    </span>
-  </a>
-  <a className="link-item" href="/useFrame.mdx" target="_blank">
+  <a
+    className="link-item"
+    href="https://docs.pmnd.rs/react-three-fiber/api/hooks#usethree"
+    target="_blank"
+  >
     <img src={trumpet} alt="trumpet" />
     <span>
       <strong>useThree</strong>
-      信息钩子const ref = useRef();
-    </span>
-  </a>
-  <a className="link-item" 	Link="./useFrame.mdx" target="_blank">
-    <img src={redBook} alt="redBook " />
-    <span>
-      <strong>useLoader</strong>
-       加载模型
-    </span>
-  </a>
-  <a className="link-item" href="https://storybook.js.org/" target="_blank">
-    <img src={graph} alt="graph" />
-    <span>
-      <strong>useGraph</strong>
-      使用图表
-    </span>
-  </a>
-
-</div>
-
-<div className="subheading">Learn</div>
-
-<div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
-    <img src={Repo} alt="repo" />
-    <span>
-      <strong>故事书文档</strong>
-      配置、定制和扩展
+      使用Three 此挂钩使您可以访问包含默认渲染器、场景、相机等的状态模型。它还会为您提供屏幕和视口坐标中画布的当前大小。
     </span>
   </a>
   <a
     className="link-item"
-    href="https://storybook.js.org/tutorials/"
+    href="https://docs.pmnd.rs/react-three-fiber/api/hooks#useframe"
+    target="_blank"
+  >
+    <img src={svgrepo} alt="svgrepo" />
+    <span>
+      <strong>useFrame</strong>
+      使用框架 此挂钩允许您在每个渲染帧上执行代码，如运行效果、更新控件等。您收到状态（与
+      相同useThree）和时钟增量。
+    </span>
+  </a>
+
+<a
+  className="link-item"
+  href="https://docs.pmnd.rs/react-three-fiber/api/hooks#useloader"
+  target="_blank"
+>
+  <img src={redBook} alt="redBook " />
+  <span>
+    <strong>useLoader</strong>
+    使用加载器 此挂钩加载资产并挂起，以便更轻松地进行回退和错误处理。
+  </span>
+</a>
+
+<a
+  className="link-item"
+  href="https://docs.pmnd.rs/react-three-fiber/api/hooks#usegraph"
+  target="_blank"
+>
+  <img src={graph} alt="graph" />
+  <span>
+    <strong>useGraph</strong>
+    使用图表 便利挂钩，它从任何Object3D.
+  </span>
+</a>
+<a
+    className="link-item"
+    href="https://docs.pmnd.rs/react-three-fiber/tutorials/how-it-works#the-attach-props"
+    target="_blank"
+  >
+    <img src={wallet} alt="wallet" />
+    <span>
+      <strong>attach</strong>
+      精确地告诉渲染器将每个组件附加到什么属性
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://docs.pmnd.rs/react-three-fiber/tutorials/how-it-works#props"
+    target="_blank"
+  >
+    <img src={bomberman} alt="bomberman" />
+    <span>
+      <strong>Props属性</strong>
+      使用 Fiber，你可以将任何 three.js 属性作为 React 属性传递，它将被分配给构造的对象
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://docs.pmnd.rs/react-three-fiber/tutorials/how-it-works#pointer-events"
+    target="_blank"
+  >
+    <img src={bookGift} alt="bookGift" />
+    <span>
+      <strong>Pointer Events</strong>
+      指针事件由 Fiber 透明地处理。在启动时，它将创建一个用于鼠标拾取的光线投射器。
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://docs.pmnd.rs/react-three-fiber/tutorials/how-it-works#render-loop"
+    target="_blank"
+  >
+    <img src={boxGift} alt="boxGift" />
+    <span>
+      <strong>RenderLoop</strong>
+      使用 Fiber，你可以将任何 three.js 属性作为 React 属性传递，它将被分配给构造的对象
+    </span>
+  </a>
+</div>
+
+<div className="subheading">three重要</div>
+
+<div className="link-list">
+  <a
+    className="link-item"
+    href="https://threejs.org/docs/#api/zh/core/Object3D.updateMatrixWorld"
+    target="_blank"
+  >
+    <img src={Repo} alt="repo" />
+    <span>
+      <strong>Object3D</strong>
+      这是 three.js 中大多数对象的基类，并提供一组用于在 3D 空间中操作对象的属性和方法。
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://threejs.org/docs/index.html#api/zh/math/Matrix3"
     target="_blank"
   >
     <img src={Direction} alt="direction" />
     <span>
-      <strong>深度指南</strong>
-      来自领先团队的最佳实践
+      <strong>三维矩阵Matrix3</strong>
+      一个表示3X3矩阵matrix.的类。
     </span>
   </a>
   <a
     className="link-item"
-    href="https://github.com/storybookjs/storybook"
+    href="https://threejs.org/docs/index.html#api/zh/math/Vector2"
     target="_blank"
   >
     <img src={Code} alt="code" />
     <span>
-      <strong>itHub项目</strong>
-      查看源码并添加问题
+      <strong>向量Vector2</strong>
+      表示2D vector（二维向量）的类。
     </span>
   </a>
-  <a className="link-item" href="https://discord.gg/storybook" target="_blank">
+  <a
+    className="link-item"
+    href="https://threejs.org/docs/index.html#api/zh/core/Clock"
+    target="_blank"
+  >
     <img src={Comments} alt="comments" />
     <span>
-      <strong>不和谐聊天</strong>
-      与维护者和社区聊天
+      <strong>Clock</strong>
+      该对象用于跟踪时间。
     </span>
   </a>
 </div>
 
 <div className="tip-wrapper">
-  <span className="tip">提示</span>编辑标记{" "}
+  <span className="tip">Tip</span>Edit the Markdown in{" "}
   <code>stories/Introduction.stories.mdx</code>
 </div>
