@@ -1,8 +1,8 @@
 import React from "react";
-import { FloorEvent } from "./02FloorEvent";
+import { FloorEvent } from "./FloorEvent";
 
 export default {
-  title: "Floor/木地板事件",
+  title: "Examples/FloorEvent",
   coment: FloorEvent,
 };
 const FloorEventLate = () => <FloorEvent />;

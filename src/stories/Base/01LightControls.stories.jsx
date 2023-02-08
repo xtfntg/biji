@@ -32,6 +32,31 @@ export default {
       control: { type: "color", presetColors: ["#20894d", "#7e1671"] },
     },
 
+    shadowBias: {
+      control: { type: "range", min: -0.002, max: 0.001, step: 0.0005 },
+    },
+    shadowRadius: {
+      control: { type: "range", min: 1, max: 10, step: 1 },
+    },
+    shadowBlur: {
+      control: { type: "range", min: 1, max: 100, step: 1 },
+    },
+    shadowMapSize: {
+      contact1: { control: "loneOf", options: [1024, 2048, 4096] },
+    },
+    shadowCameraLeft: {
+      control: { type: "range", min: -100, max: 100, step: 10 },
+    },
+    shadowCameraRight: {
+      control: { type: "range", min: -100, max: 100, step: 10 },
+    },
+    shadowCameraTop: {
+      control: { type: "range", min: -100, max: 100, step: 10 },
+    },
+    shadowCameraBottom: {
+      control: { type: "range", min: -100, max: 100, step: -10 },
+    },
+
     //1.3设置锚点组件x,y,z轴，控制样式条 类型范围 最小1 最大5 每次调整的值
   },
 };
@@ -43,6 +68,14 @@ const LightControlsLate = ({
   pointLightIntensity,
   pointLightcolor,
   drawBoundingBox,
+  shadowBias,
+  shadowRadius,
+  shadowBlur,
+  shadowMapSize,
+  shadowCameraLeft,
+  shadowCameraRight,
+  shadowCameraTop,
+  shadowCameraBottom,
   args,
 }) => (
   <LightControls
@@ -50,6 +83,14 @@ const LightControlsLate = ({
     directionalLightIntensity={directionalLightIntensity}
     pointLightIntensity={pointLightIntensity}
     pointLightcolor={pointLightcolor}
+    shadowBias={shadowBias}
+    shadowRadius={shadowRadius}
+    shadowBlur={shadowBlur}
+    shadowMapSize={shadowMapSize}
+    shadowCameraLeft={shadowCameraLeft}
+    shadowCameraRight={shadowCameraRight}
+    shadowCameraTop={shadowCameraTop}
+    shadowCameraBottom={shadowCameraBottom}
     //1.5锚点 正方形X,Y,Z控制
     drawBoundingBox={drawBoundingBox}
     {...args}

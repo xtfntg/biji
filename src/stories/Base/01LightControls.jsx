@@ -12,6 +12,14 @@ export const LightControls = ({
   directionalLightIntensity,
   pointLightIntensity,
   pointLightcolor,
+  shadowBias,
+  shadowRadius,
+  shadowBlur,
+  shadowMapSize,
+  shadowCameraLeft,
+  shadowCameraRight,
+  shadowCameraTop,
+  shadowCameraBottom,
   ...props
 }) => {
   const style = { width: "600px", height: "400px", backgroundColor: "#0eb0c9" };
@@ -34,10 +42,17 @@ export const LightControls = ({
         {/* 2.1灯光强度 颜色 属性 */}
         <ambientLight intensity={ambientLightIntensity} />
         <directionalLight
-          castShadow
           position={[2.5, 8, 5]}
           intensity={directionalLightIntensity}
-          shadow-mapSize={1024}
+          castShadow
+          shadow-bias={shadowBias}
+          shadow-radius={shadowRadius}
+          shadow-blur={shadowBlur}
+          shadow-mapSize={2048}
+          shadow-camera-left={shadowCameraLeft}
+          shadow-camera-right={shadowCameraRight}
+          shadow-camera-top={shadowCameraTop}
+          shadow-camera-bottom={shadowCameraBottom}
           color={"#7e1671"}
         />
         <pointLight
@@ -47,7 +62,7 @@ export const LightControls = ({
           color={pointLightcolor}
         />
         {/* 1.1 比例选择锚 轴来调节物体大小*/}
-        <mesh receiveShadow castShadow>
+        <mesh receiveShadow castShadow position={[0, -1.5, 0]}>
           <boxGeometry />
           <meshStandardMaterial color={"#fff"} />
         </mesh>

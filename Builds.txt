@@ -1,4 +1,61 @@
+################1.Builds添加到GitHub################
+说明：
 git add .
 git commit -m "test"
 git push
 npx chromatic --project-token=beef1fd3f255
+
+################2.全局代码段添加################
+说明：1.代码片段转译https://snippet-generator.app/ 
+          2.片段文件 ReactKey.code-snippets
+          3.文件>首选项>配制用户代码片段 >新建全局代码片段 ( ReactKey)
+          4.添加下面片段
+{
+  // Place your 全局 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "jsx": {
+    "prefix": "jsx",
+    "body": [
+      "import React from \"react\";",
+      "import { Canvas } from \"@react-three/fiber\";",
+      "",
+      "export const Box = () => {",
+      "  const style = { width: \"600px\", height: \"400px\", backgroundColor: \"#eaad1a\" };",
+      "  return (",
+      "    <Canvas style={style}>",
+      "      <mesh>",
+      "        <boxGeometry />",
+      "        <meshBasicMaterial />",
+      "      </mesh>",
+      "    </Canvas>",
+      "  );",
+      "};",
+      ""
+    ],
+    "description": ""
+  },
+  "storybook": {
+    "prefix": "sto",
+    "body": [
+      "import React from \"react\";",
+      "",
+      "import { Box } from \"./Box\";",
+      "",
+      "export default {",
+      "  title: \"Examples/Box\",",
+      "  component: Box,",
+      "};",
+      "",
+      "const BoxLate = () => <Box />;",
+      "export const BoxLates = BoxLate.bind({});",
+      "",
+      ""
+    ],
+    "description": ""
+  }
+}
