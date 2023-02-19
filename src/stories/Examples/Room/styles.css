@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#root,
+#City,
+#App3D {
+    width: 100%;
+    height: 100%;
+
+
+}
+
+#ImageGallery {
+
+    height: 100%;
+    width: 100%;
+}
+
+#root {
+    background: greenyellow;
+}
+
+#City {
+    background: rgba(26, 57, 78, 0.808);
+}
+
+#App3D {
+    background: gold;
+    position: relative;
+
+}
+
+#ShoppingCart {
+    width: 50%;
+    height: 50%;
+}
+
+#Stage {
+    height: 100%;
+    width: 100%;
+    background: lightblue;
+}
+
+#Stage {
+    height: 100%;
+    width: 100%;
+    background: lightblue;
+}
+
+#Supermarket {
+    height: 100%;
+    width: 100%;
+    background: forestgreen
+}

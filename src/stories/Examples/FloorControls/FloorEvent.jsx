@@ -15,6 +15,7 @@ const Teleport = () => {
   const [dragging, setDragging] = useState(false);
   //拖动向量
   const dragVector = useMemo(() => new Vector2(), []);
+
   useEffect(() => {
     const onPointerDown = (e) => {
       setDragging(true);

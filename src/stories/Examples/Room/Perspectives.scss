@@ -1,0 +1,60 @@
+.Perspectives {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  right: 100px;
+  bottom: 100px;
+  z-index: 1000;
+  .controlbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 600px;
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    z-index: 11;
+    transition: 0.5s;
+
+    .rotate {
+      color: white;
+      transform: rotate(45deg);
+      background: red;
+      font-size: 3em;
+    }
+    .normal {
+      color: white;
+      background: blue;
+      font-size: 3em;
+    }
+
+    button {
+      width: 54px;
+      min-width: 54px;
+      height: 54px;
+      min-height: 54px;
+      border-radius: 27px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.4);
+      transition: 0.1s;
+      font-size: 12px;
+
+      &:hover {
+        background: rgba(22, 22, 32, 0.4);
+      }
+
+      &:active {
+        background: rgba(22, 22, 32, 0.7);
+      }
+    }
+  }
+}
+.hidden {
+  transform: scale(0);
+  transform-origin: bottom;
+}

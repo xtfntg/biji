@@ -1,0 +1,140 @@
+li {
+  list-style: none;
+}
+
+.MeshList {
+  display: flex;
+  position: absolute;
+  height: auto;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  z-index: 2;
+
+  .containerBox {
+    padding-top: 12%;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+}
+.leftbox {
+  position: relative;
+  width: 64px;
+  background: rgba(22, 22, 32, 0.7);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 50px;
+  button {
+    position: relative;
+    background: url(./img/icon.png);
+    border: none;
+    box-shadow: none;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background-color: rgba(117, 117, 117, 0.8);
+    }
+  }
+
+  .B1 {
+    background-position: 4px -234px;
+
+    &:active {
+      background-position: 4px -114px;
+    }
+  }
+  .B2 {
+    background-position: -531px -236px;
+
+    &:active {
+      background-position: -531px -116px;
+    }
+  }
+
+  .B3 {
+    background-position: -272px -236px;
+
+    &:active {
+      background-position: -272px -116px;
+    }
+  }
+
+  .B4 {
+    background-position: -136px -233px;
+
+    &:active {
+      background-position: -136px -113px;
+    }
+  }
+}
+.rightbox {
+  display: flex;
+  width: 60%;
+  height: 90vh;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.7);
+
+  .content {
+    padding: 20px;
+    width: 100%;
+    height: 20%;
+    display: none;
+  }
+
+  .active-content {
+    display: block;
+  }
+  ul {
+    position: relative;
+    width: 100%;
+    min-height: 180px;
+    box-sizing: border-box;
+    /* border: 2px red solid; */
+    h3 {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background-color: greenyellow;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    li {
+      position: absolute;
+      bottom: 2px;
+      /*  background-color: blue; */
+      h4 {
+        font-size: 14px;
+        color: rgb(205, 224, 34);
+        line-height: 0;
+      }
+      p {
+        font-size: 14px;
+        line-height: 0;
+      }
+      span {
+        font-size: 12px;
+        color: rgb(83, 83, 83);
+      }
+    }
+  }
+}

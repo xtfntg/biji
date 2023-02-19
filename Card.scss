@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.cont {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  .thumb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    li {
+      list-style: none;
+      width: 100px;
+      height: 100px;
+      background: #0000ff;
+      margin: 10px 0;
+    }
+  }
+  .imgBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background: #ff0;
+  }
+}

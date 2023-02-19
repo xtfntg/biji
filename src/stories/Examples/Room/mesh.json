@@ -1,0 +1,130 @@
+{
+    "desks": [
+        {
+            "id": 1,
+            "type": "新品",
+            "name": "学习桌",
+            "size": "1200x600",
+            "title": "MICKE 米克",
+            "image": "img/desk1.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        },
+        {
+            "id": 2,
+            "type": "经典",
+            "name": "电脑桌",
+            "size": "1000x600",
+            "title": "NORDEN 诺顿",
+            "image": "img/desk2.png",
+            "price": "￥800",
+            "describe": "桌子带储物挂架"
+        },
+        {
+            "id": 3,
+            "type": "特价",
+            "name": "办公桌",
+            "size": "800x400",
+            "title": "ALEX 阿来斯",
+            "image": "img/desk3.png",
+            "price": "￥1200",
+            "describe": "带有空气净化器的桌子"
+        }
+    ],
+    "windows": [
+        {
+            "id": 1,
+            "type": "新品",
+            "name": "百叶窗",
+            "size": "1200x600",
+            "title": "MICKE 米克",
+            "image": "img/window1.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        },
+        {
+            "id": 2,
+            "type": "经典",
+            "name": "窗帘",
+            "size": "1000x600",
+            "title": "NORDEN 诺顿",
+            "image": "img/window2.png",
+            "price": "￥800",
+            "describe": "桌子带储物挂架"
+        },
+        {
+            "id": 3,
+            "type": "镜子",
+            "name": "窗帘",
+            "size": "1000x600",
+            "title": "NORDEN 诺顿",
+            "image": "img/window3.png",
+            "price": "￥800",
+            "describe": "桌子带储物挂架"
+        }
+    ],
+    "chair": [
+        {
+            "id": 1,
+            "type": "新品",
+            "name": "扶手椅",
+            "size": "300x400",
+            "title": "MICKE 米克",
+            "image": "img/chair1.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        },
+        {
+            "id": 2,
+            "type": "经典",
+            "name": "办公椅",
+            "size": "200x400",
+            "title": "MICKE 米克",
+            "image": "img/chair2.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        },
+        {
+            "id": 3,
+            "type": "经典",
+            "name": "椅子",
+            "size": "200x400",
+            "title": "MICKE 米克",
+            "image": "img/chair3.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        }
+    ],
+    "pictures": [
+        {
+            "id": 1,
+            "type": "新品",
+            "name": "图片1",
+            "size": "300x400",
+            "title": "MICKE 米克",
+            "image": "img/picture1.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        },
+        {
+            "id": 2,
+            "type": "新品",
+            "name": "图片2",
+            "size": "300x400",
+            "title": "MICKE 米克",
+            "image": "img/picture2.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        },
+        {
+            "id": 3,
+            "type": "新品",
+            "name": "图片3",
+            "size": "300x400",
+            "title": "MICKE 米克",
+            "image": "img/picture3.png",
+            "price": "￥2100",
+            "describe": "被套和2个枕套"
+        }
+    ]
+}
