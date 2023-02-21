@@ -21,20 +21,18 @@ const ShoppingCart = () => {
 };
 const Init = () => {
   return (
-    <>
-      <Html>
-        <div class="imgBoxOats">
-          <h2>耐克 旅游鞋</h2>
-          <ul class="size">
-            <span>型号</span>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-          </ul>
-        </div>
-      </Html>
-    </>
+    <Html transform center>
+      <div class="imgBoxOats">
+        <h2>耐克 旅游鞋11111</h2>
+        <ul class="size">
+          <span>型号</span>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
+    </Html>
   );
 };
 
